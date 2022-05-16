@@ -1,0 +1,37 @@
+﻿@model SklepInternetowy.Models.Product
+
+<h2>Usuń</h2>
+
+<h3>Napewno chcesz usunąć ten produkt?</h3>
+
+<div>
+    <div>
+        <h2>@Html.DisplayFor(model => model.Name)</h2>
+        <hr />
+        <h3>
+            Opis
+
+        </h3>
+        <h4>@Html.DisplayFor(model => model.Category)</h4>
+        <div>
+            <h4> @Html.DisplayFor(model => model.Description)</h4>
+        </div>
+        <h3>
+            Cena
+
+            @Html.DisplayFor(model => model.Price) zł
+        </h3>
+
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
+

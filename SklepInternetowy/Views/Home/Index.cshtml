@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <div class="row" style="margin:unset; height: 100%">
+        <div class="col-md-10" style="margin: 0;">
+            <img src="~/Content/old-book-flying-letters-magic-light-background-bookshelf-library-ancient-books-as-symbol-knowledge-history-218640948.jpg" style="width: 50%; height:50%; align-content:center" />
+        </div>
+        <div class="col-md-2"style="align-content: center">
+            <h2>BookMarkt</h2>
+            <p>
+                Witaj w sklepie BookMarkt!
+            </p>
+            <p>@Html.ActionLink("Rozpocznij zakupy", "Index", "Product", null, new { @class = "btn btn-primary" })</p>
+        </div>
+        </div>
+    </div>

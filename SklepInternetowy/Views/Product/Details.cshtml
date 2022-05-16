@@ -1,0 +1,27 @@
+﻿@model SklepInternetowy.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div>
+    <h2>@Html.DisplayFor(model => model.Name)</h2>
+    <hr />
+    <h3>Opis
+    
+    </h3>
+    <h4>@Html.DisplayFor(model => model.Category)</h4>
+    <div>
+        <h4> @Html.DisplayFor(model => model.Description)</h4>
+    </div>
+    <h3>Cena
+    
+    @Html.DisplayFor(model => model.Price) zł</h3>
+
+</div>
+<p>
+    @if (User.IsInRole("Admin")) {
+    @Html.ActionLink("Edytuj", "Edit", new { id = Model.ProductID }) 
+    @Html.ActionLink("Wróć o listy", "Index")
+    }
+</p>

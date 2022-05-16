@@ -1,0 +1,93 @@
+﻿:root {
+    /* Variables section */
+    /*COLORS*/
+    --color_light_blue: #DFE7F1;
+    --color_blue: #9BBCE4;
+    --color_white: white;
+    --color_darkgray: #555;
+    /*WIDTHS*/
+    /*FONTS*/
+    --main_font: 'Georgia';
+    --headers_font: 'Lato';
+}
+
+body {
+    padding-top: 50px;
+    font-family: var(--main_font);
+    background-image: url(thenewyorker_the-oddest-terms-used-for-antique-books-explained.jpg);
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-right: 15px;
+    height: inherit;
+    background: white;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+
+input,
+select,
+textarea {
+    max-width: 280px;
+    color: #ffffff;
+    background-color: #000000;
+    border-radius: 30px;
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    text-align: center;
+    font-size: 16px;
+}
+
+h2 {
+    text-align: center;
+    background: rgb(42 22 22 / 0,97)
+}
+
+.navbar-brand, .dropdown, li {
+    margin: 0;
+    font-size: 15px;
+}
+
+table {
+    margin-top: 50px;
+}
+
+th, dt {
+    font-weight: normal;
+    color: #039;
+    padding: 10px 15px;
+    text-align: center;
+}
+
+td, dd {
+    color: #669;
+    border-top: 1px solid #e8edff;
+    padding: 10px 15px;
+    text-align: center;
+}
+
+tr:nth-child(2n) {
+    background: #e8edff;
+}
+
+p {
+    margin-top: 20px;
+}
+
+
+#parent {
+    margin: 20px;
+}
+
+#child {
+    margin: 5px;
+    background-color: #e8edff;
+}

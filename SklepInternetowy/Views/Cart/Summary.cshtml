@@ -1,0 +1,14 @@
+﻿@model SklepInternetowy.Models.Cart
+@{
+    ViewBag.Title = "Summary";
+}
+
+<div class="navbar-right">
+    @Html.ActionLink("Zamow","Index", "Cart", new { @class = "btn btn-default navbar-btn" })
+</div>
+<div class="navbar-text navbar-right">
+    <b>Koszyk</b>
+    @Model.Lines.Sum(x => x.Quantity) książek,
+    @Model.ComputeTotalValue().ToString() zł
+</div>
+

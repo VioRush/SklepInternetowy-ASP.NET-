@@ -1,0 +1,55 @@
+﻿@model PagedList.IPagedList<SklepInternetowy.Models.Product>
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "Produkty";
+}
+
+<h2>Produkty</h2>
+
+@using (Html.BeginForm("Index", "Product", FormMethod.Get))
+{
+    <div  style="width: 150px; align-content: center">
+        @if (User.IsInRole("Admin")) {
+            @Html.ActionLink("Nowy produkt ", "Create")
+        }
+        Wyszukaj produkt
+        <p style="width:70%">@Html.TextBox("searchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search"/> </p>
+    </div>
+}
+
+<div>
+    Sortuj według: @Html.ActionLink("Nazwa", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter=ViewBag.CurrentFilter}) |  @Html.ActionLink("Cena", "Index", new { sortOrder = ViewBag.PriceSortParm, currentFilter = ViewBag.CurrentFilter })
+</div>
+<div id="parent">
+
+
+    @foreach (var item in Model)
+    {
+        
+        <div id="child">
+            <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
+            <h4>@Html.DisplayFor(modelItem => item.Category)</h4>
+            <h3>@Html.DisplayFor(modelItem => item.Price) zł</h3>
+
+
+            @using (Html.BeginForm("AddToCart", "Cart", new { id = item.ProductID }))
+            {
+            <div class="pull-right">
+                @if (User.IsInRole("Admin"))
+                {
+                    @Html.ActionLink("Edytuj", "Edit", new { id = item.ProductID }, new { @class = "btn btn-primary" }) 
+                    @Html.ActionLink("Usuń", "Delete", new { id = item.ProductID }, new { @class = "btn btn-primary" })
+                }
+                @Html.ActionLink("Opis ", "Details", new { id = item.ProductID }, new { @class = "btn btn-primary" })
+                <input type="submit" class="btn btn-success" value="Dodaj do koszyka" />
+            </div>
+            }
+        </div>
+    }
+
+</div>
+<br/>
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
